@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prop Trading AI Assistant - Live Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h2:before {
+            content: "💡";
+            font-size: 1.5rem;
+        }
+
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .question-btn {
+            background: #f0f0f0;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+            text-align: left;
+            font-family: inherit;
+        }
+
+        .question-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .features {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .note {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8rem; }
+            .card { padding: 20px; }
+            .questions-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Prop Trading AI Assistant</h1>
+            <p>24/7 Support for Traders • Instant Answers • Voice + Chat</p>
+            <div class="badge">⚡ Live Demo • Ready to Test</div>
+        </div>
+
+        <div class="card">
+            <h2>Try These Questions</h2>
+            <p>Click any question below — or just type/speak your own!</p>
+            <div class="questions-grid">
+                <button class="question-btn" onclick="askQuestion('What are your challenge rules?')">📊 What are your challenge rules?</button>
+                <button class="question-btn" onclick="askQuestion('When do I get paid?')">💰 When do I get paid?</button>
+                <button class="question-btn" onclick="askQuestion('What account sizes do you offer?')">📈 What account sizes do you offer?</button>
+                <button class="question-btn" onclick="askQuestion('How do I reset my account?')">🔄 How do I reset my account?</button>
+                <button class="question-btn" onclick="askQuestion('What is the maximum daily drawdown?')">⚠️ What is maximum daily drawdown?</button>
+                <button class="question-btn" onclick="askQuestion('Do you offer 24/7 support?')">🌙 Do you offer 24/7 support?</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>How to Test</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🎤</div>
+                    <h3>Voice Mode</h3>
+                    <p>Click the microphone icon and speak naturally</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💬</div>
+                    <h3>Chat Mode</h3>
+                    <p>Type your questions like a normal chat</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Switch Anytime</h3>
+                    <p>Toggle between voice and text mid-conversation</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="note">
+            <strong>🚀 What this AI can do:</strong><br>
+            • Answer prop trading challenge rules and requirements<br>
+            • Explain payout schedules and profit splits<br>
+            • Describe account sizes from $5,000 to $300,000<br>
+            • Handle account reset policies and fees<br>
+            • Escalate complex issues to human support
+        </div>
+
+        <div class="footer">
+            <p>🔒 Your conversation is private • No credit card required • Test as many times as you want</p>
+            <p style="margin-top: 10px;">👇 <strong>Look for the chat widget at the bottom right corner</strong> 👇</p>
+        </div>
+    </div>
+
+    <!-- Helper function to auto-fill questions when buttons are clicked -->
+    <script>
+        function askQuestion(question) {
+            // Find the chat input and simulate typing
+            const inputField = document.querySelector('input[type="text"], textarea, [contenteditable="true"]');
+            if (inputField) {
+                inputField.value = question;
+                inputField.dispatchEvent(new Event('input', { bubbles: true }));
+                // Try to find and click send button
+                const sendBtn = document.querySelector('button[aria-label="Send"], button:has(svg), .send-button');
+                if (sendBtn) setTimeout(() => sendBtn.click(), 100);
+            }
+            // If we can't find the input, just alert the user
+            setTimeout(() => {
+                if (!document.querySelector('.vapi-widget-container')) {
+                    alert('Click the chat widget at the bottom right first, then click any question!');
+                }
+            }, 500);
+        }
+    </script>
+
+    <!-- Vapi Web Widget -->
+    <script>
+        (function(){
+            var vapiWidget = document.createElement('script');
+            vapiWidget.src = 'https://cdn.vapi.ai/widget/index.js';
+            vapiWidget.defer = true;
+            vapiWidget.setAttribute('data-public-key', 'a0069276-28c4-490b-8107-3e61e7a7d2a4');
+            vapiWidget.setAttribute('data-assistant-id', '0479b621-b74a-41bc-bf49-45c89f9f7075');
+            vapiWidget.setAttribute('data-display-style', 'button');
+            vapiWidget.setAttribute('data-button-position', 'bottom-right');
+            vapiWidget.setAttribute('data-button-color', '#667eea');
+            vapiWidget.setAttribute('data-welcome-message', 'Hello! I am Fundee, your prop trading assistant. Ask me anything about challenge rules, payouts, or account types!');
+            document.head.appendChild(vapiWidget);
+        })();
+    </script>
+</body>
+</html>
